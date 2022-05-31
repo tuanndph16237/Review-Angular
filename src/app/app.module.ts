@@ -13,6 +13,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SigninComponent } from './components/login/signin/signin.component';
+import { SignupComponent } from './components/login/signup/signup.component';
+import { UsersComponent } from './components/users/users.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { HomeComponent } from './pages/home/home.component';
     FooterComponent,
     HeaderComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    SigninComponent,
+    SignupComponent,
+    UsersComponent,
+
   ],
   imports: [
     BrowserModule,

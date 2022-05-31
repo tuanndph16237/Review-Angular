@@ -1,17 +1,24 @@
-<table class="table table-bordered">
+<table class="table table-bordererd">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
     <tbody>
-        <tr *ngFor="let product of productList; let i = index">
+        <tr *ngFor="let product of products; let i = index">
             <td>{{ i + 1 }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.price }}</td>
+            <td>{{ product.status ? "Còn hàng" : "hết hàng" }}</td>
             <td>
-                <button class="btn btn-info">Info</button>
-                <button class="btn btn-primary ms-1" routerLink="/product/edit/{{ product.id }}">
-                  Edit
-              </button>
-                <button class="btn btn-danger ms-1" (click)="onRemoveItem(product.id!)">
-                  Remove
-              </button>
+                <button class="btn btn-danger" (click)="onHandleRemove(product.id!)">
+        Delete
+      </button>
+                <button class="btn btn-info ms-1">Detail</button>
             </td>
         </tr>
     </tbody>

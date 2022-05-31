@@ -1,31 +1,28 @@
+
 import { Component, Input, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/models/Product';
-import { ProductService } from 'src/app/services/product.service'
+import { IProduct } from './../../models/Product';
+import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  productList!: IProduct[];
+  products!: IProduct[]
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.showProducts();
+    this.getProductList();
   }
-  showProducts() {
-    this.productService.getProducts().subscribe(data => {
-      this.productList = data
+
+  getProductList(){
+    this.productService.getProductList().subscribe(data =>{
+      this.products = data;
     })
   }
-  onRemoveItem(id: number) {
-    const confirm = window.confirm('Bạn có chắc chắn muốn xóa không?');
-    if (confirm) {
-      // call api xoa
-      this.productService.removeProduct(id).subscribe(() => {
-        // reRender
-        this.productList = this.productList.filter(item => item.id !== id);
-      });
-    }
+  onHandleRemove(id: number) {
+    this.productService.removeProduct(id).subscribe(() => {
+      this.products = this.products.filter(item => item.id !== id);
+    })
   }
 }

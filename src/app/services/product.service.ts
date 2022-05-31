@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
-import Data from 'src/data';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { IProduct } from '../models/Product';
-
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  API_URL: string = 'http://localhost:3000/products';
+  API_URL = `http://localhost:3000/products/`
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  getProduct(id: number): Observable<IProduct> {
-    return this.http.get<IProduct>(`${this.API_URL}/${id}`)
+  getProduct(id: any): Observable<IProduct> {
+    // return data.find(item => item.id === id);
+    return this.http.get<IProduct>(`${this.API_URL}/${id}`);
   }
-  getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${this.API_URL}`)
+  getProductList(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(`${this.API_URL}`);
   }
   removeProduct(id: number): Observable<IProduct> {
-    return this.http.delete<IProduct>(`${this.API_URL}/${id}`)
+    return this.http.delete<IProduct>(`${this.API_URL}/${id}`);
   }
-  addProduct(product: any): Observable<IProduct> {
-    return this.http.post<IProduct>(`${this.API_URL}`, product)
+  addProduct(product: IProduct): Observable<IProduct> {
+    return this.http.post<IProduct>(`${this.API_URL}`, product);
   }
-  updateProduct(product: IProduct) {
+  updateProduct(product: IProduct): Observable<IProduct> {
     return this.http.put<IProduct>(`${this.API_URL}/${product.id}`, product);
   }
 }
-/**
- * 1. Import module "HttpClientModule" vào file app.module.ts
- * 2. Import service "HttpClient" vào product.service.ts
- * 3. Inject service http vào product service
- */
+
+// B1: Khai báo HttpClientModule trong app.module.ts
+// B2: Khai báo HttpClient trong services
+// B3: Inject services HttpClient
