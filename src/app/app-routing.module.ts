@@ -5,6 +5,9 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProductComponent } from './components/product/product.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SigninComponent } from './components/login/signin/signin.component';
+import { SignupComponent } from './components/login/signup/signup.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "about", component: AboutComponent },
@@ -12,6 +15,19 @@ const routes: Routes = [
   { path: "product/add", component: ProductAddComponent },
   { path: "product/:id", component: ProductDetailComponent },
   { path: "product/edit/:id", component: ProductAddComponent },
+  {
+    path : '',
+    component: HeaderComponent
+  },
+  {
+    path : 'signup',
+    component: SignupComponent
+  },
+  {
+    path : 'signin',
+    component: SigninComponent
+  }
+
 ];
 
 @NgModule({

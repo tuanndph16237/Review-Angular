@@ -1,18 +1,6 @@
 {
   "products": [
     {
-      "name": "product A edited",
-      "price": 213132131,
-      "status": true,
-      "id": 1
-    },
-    {
-      "name": "12313",
-      "price": 2131231231,
-      "status": true,
-      "id": 2
-    },
-    {
       "name": "product A",
       "price": 1232132131,
       "status": true,
@@ -23,6 +11,25 @@
       "price": 321313131,
       "status": true,
       "id": 4
+    },
+    {
+      "name": "Nguyen Duc Tuan",
+      "price": 1,
+      "status": true,
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "name": "Nguyen Duc Tuan",
+      "password": "tuan12345",
+      "email": "nguyenductuan05102002@gmail.com",
+      "id": 1
+    },
+    {
+      "password": "tuan12345",
+      "email": "tuanndph16237@fpt.edu.vn",
+      "id": 2
     }
   ]
 }
